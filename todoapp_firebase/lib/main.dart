@@ -8,10 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
-          apiKey: "AIzaSyAPYYOKb-yeRqcHML8FSH1YWd8Piplbo1I",
-          appId: "1:88087465839:android:87c86d30459f0e9bfe629a",
-          messagingSenderId: "88087465839",
-          projectId: "todoportfolio-cd604"));
+          apiKey: " ", appId: " ", messagingSenderId: " ", projectId: " "));
   runApp(const MyApp());
 }
 
