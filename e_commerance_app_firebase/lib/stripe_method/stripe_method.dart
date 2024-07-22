@@ -50,8 +50,7 @@ class Stripehelper {
       var response = await http.post(
         Uri.parse('https://api.stripe.com/v1/payment_intents'),
         headers: {
-          'Authorization':
-              'Bearer sk_test_51P7AcrK7CAbmirkaeYNa9Ao7ZR5R0UjiWhN7rO09MVFyLbMMbjyuzMOCIiqTerMCUVoF5Vm1uWX4bDOKX7HMAEV500HYhFWpZm ',
+          'Authorization': 'Bearer ',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: body,

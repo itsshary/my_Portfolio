@@ -4,13 +4,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
- 
-
 import 'package:provider/provider.dart';
 
 void main() async {
-  Stripe.publishableKey =
-      'pk_test_51P7AcrK7CAbmirkaU0JdmctXMp0TP4EjiIwlct3me9Q03E07yM006YePfNmPE84aT8zNthyIn2O43UsOpglsdpz300nGk7rv3t';
+  Stripe.publishableKey = ' Enter your Publishable key';
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
