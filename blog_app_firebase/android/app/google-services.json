@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "931546805089",
+    "project_id": "blogportfolio-a5871",
+    "storage_bucket": "blogportfolio-a5871.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931546805089:android:65f1d9f07d47295d750b20",
+        "android_client_info": {
+          "package_name": "com.example.blog_app_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZMa5BFAacfdiVLx4JrVktaaIFc11VgqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
