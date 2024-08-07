@@ -4,7 +4,7 @@ A Saftey app will help you to connect with Gardian
 
 ## App Features
 
-Login/signup
+Login/signup <\b>
 Parent Login/signup
 Current Location/police stations,hospitals,help center
 Attractive Ui
