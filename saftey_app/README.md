@@ -4,19 +4,20 @@ A Saftey app will help you to connect with Gardian
 
 ## App Features
 
-Login/signup <\b>
-Parent Login/signup
-Current Location/police stations,hospitals,help center
-Attractive Ui
-Webview
-Background notification
-Local push notification
-firebase Storage / cloud_firestore
-Chat Module
-SqFlite for local database
-Add Rating Review
-Add contact to parents
-shake an call automatic
+Login/signup ,
+Parent Login/signup,
+Current Location/police stations,hospitals,help center,
+Attractive Ui,
+Webview,
+Background notification,
+Local push notification,
+firebase Storage / cloud_firestore,
+Chat Module,
+SqFlite for local database,
+Shared Preferance,
+Add Rating Review,
+Add contact to parents,
+shake an call automatic,
 
 ## App Screenshot
 
