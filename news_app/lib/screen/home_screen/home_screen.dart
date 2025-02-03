@@ -119,146 +119,143 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.blue,
                     );
                   } else {
-                    return Expanded(
-                      flex: 3,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: snapshot.data!.articles!.length,
-                        itemBuilder: (context, index) {
-                          DateTime dateTime = DateTime.parse(snapshot
-                              .data!.articles![index].publishedAt
-                              .toString());
-                          return SizedBox(
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => NewsDetailScreen(
-                                              snapshot.data!.articles![index]
-                                                  .urlToImage
-                                                  .toString(),
+                    return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: snapshot.data!.articles!.length,
+                      itemBuilder: (context, index) {
+                        DateTime dateTime = DateTime.parse(snapshot
+                            .data!.articles![index].publishedAt
+                            .toString());
+                        return SizedBox(
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => NewsDetailScreen(
+                                            snapshot.data!.articles![index]
+                                                .urlToImage
+                                                .toString(),
+                                            snapshot
+                                                .data!.articles![index].title
+                                                .toString(),
+                                            snapshot.data!.articles![index]
+                                                .publishedAt
+                                                .toString(),
+                                            snapshot
+                                                .data!.articles![index].author
+                                                .toString(),
+                                            snapshot.data!.articles![index]
+                                                .description
+                                                .toString(),
+                                            snapshot
+                                                .data!.articles![index].content
+                                                .toString(),
+                                            snapshot.data!.articles![index]
+                                                .source!.name
+                                                .toString(),
+                                          )));
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Container(
+                                  height: height * .6,
+                                  width: width * .9,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: height * .02),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: CachedNetworkImage(
+                                      imageUrl: snapshot
+                                          .data!.articles![index].urlToImage
+                                          .toString(),
+                                      fit: BoxFit.cover,
+                                      placeholder: (context, url) =>
+                                          const SpinKitCircle(
+                                        color: Colors.black,
+                                        size: 50,
+                                      ),
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(
+                                        Icons.error,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 20,
+                                  child: Card(
+                                    elevation: 5,
+                                    color: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Container(
+                                      alignment: Alignment.bottomCenter,
+                                      padding: const EdgeInsets.all(15.0),
+                                      height: height * .22,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          SizedBox(
+                                            width: width * 0.7,
+                                            child: Text(
                                               snapshot
                                                   .data!.articles![index].title
                                                   .toString(),
-                                              snapshot.data!.articles![index]
-                                                  .publishedAt
-                                                  .toString(),
-                                              snapshot
-                                                  .data!.articles![index].author
-                                                  .toString(),
-                                              snapshot.data!.articles![index]
-                                                  .description
-                                                  .toString(),
-                                              snapshot.data!.articles![index]
-                                                  .content
-                                                  .toString(),
-                                              snapshot.data!.articles![index]
-                                                  .source!.name
-                                                  .toString(),
-                                            )));
-                              },
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Container(
-                                    height: height * .6,
-                                    width: width * .9,
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: height * .02),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(15),
-                                      child: CachedNetworkImage(
-                                        imageUrl: snapshot
-                                            .data!.articles![index].urlToImage
-                                            .toString(),
-                                        fit: BoxFit.cover,
-                                        placeholder: (context, url) =>
-                                            const SpinKitCircle(
-                                          color: Colors.black,
-                                          size: 50,
-                                        ),
-                                        errorWidget: (context, url, error) =>
-                                            const Icon(
-                                          Icons.error,
-                                          color: Colors.red,
-                                        ),
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          SizedBox(
+                                            width: width * 0.7,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  snapshot
+                                                      .data!
+                                                      .articles![index]
+                                                      .source!
+                                                      .name
+                                                      .toString(),
+                                                  maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  style: GoogleFonts.poppins(
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  formate.format(dateTime),
+                                                  maxLines: 2,
+                                                  style: GoogleFonts.poppins(
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
-                                  Positioned(
-                                    bottom: 20,
-                                    child: Card(
-                                      elevation: 5,
-                                      color: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Container(
-                                        alignment: Alignment.bottomCenter,
-                                        padding: const EdgeInsets.all(15.0),
-                                        height: height * .22,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            SizedBox(
-                                              width: width * 0.7,
-                                              child: Text(
-                                                snapshot.data!.articles![index]
-                                                    .title
-                                                    .toString(),
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            ),
-                                            const Spacer(),
-                                            SizedBox(
-                                              width: width * 0.7,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    snapshot
-                                                        .data!
-                                                        .articles![index]
-                                                        .source!
-                                                        .name
-                                                        .toString(),
-                                                    maxLines: 2,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                  ),
-                                                  Text(
-                                                    formate.format(dateTime),
-                                                    maxLines: 2,
-                                                    style: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     );
                   }
                 },

@@ -7,7 +7,7 @@ import 'package:news_app/Models/new_channel_headlines_model.dart';
 class NewsRepository {
   //must save in secure storage
 
-  String url = 'Enter your api key';
+  String url = '';
 
   Future<NewsChannelsHeadlinesModel> fetchNewsChanelHeadlinesapi() async {
     final response = await http.get(Uri.parse(url));
@@ -21,7 +21,7 @@ class NewsRepository {
 
   Future<NewsChannelsHeadlinesModel> fetchNewsChannelHeadlinesApi(
       String newsChannel) async {
-    String newsUrl = 'Enter your api key';
+    String newsUrl = '';
 
     final response = await http.get(Uri.parse(newsUrl));
 
@@ -34,7 +34,7 @@ class NewsRepository {
   }
 
   Future<CategoeriesNewsModel> fetchCategoriesNews(String category) async {
-    String newsUrl = 'Enter your own api key';
+    String newsUrl = ' ';
 
     final response = await http.get(Uri.parse(newsUrl));
 

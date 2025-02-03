@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:news_app/Models/offline_news_model.dart';
+import 'package:news_app/screen/news_details_screen/news_details_screen.dart';
+import 'package:news_app/screen/offline_screens/offline_news_details_screen.dart';
 import 'dart:io';
 
 import '../../Models/Boxes.dart';
@@ -30,26 +32,38 @@ class _OfflineNewsScreenState extends State<OfflineNewsScreen> {
               : ListView.builder(
                   itemCount: value.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                      child: ListTile(
-                        leading: Container(
-                          height: 60,
-                          width: 60,
-                          child: Image.file(
-                            File(data[index]
-                                .image
-                                .toString()), // Use File() to create a File object from the file path
-                            fit: BoxFit.fill,
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OfflineNewsDetailsScreen(
+                                    newsimage: data[index].image.toString(),
+                                    newstitle: data[index].title.toString(),
+                                    newsdes:
+                                        data[index].description.toString())));
+                      },
+                      child: Card(
+                        child: ListTile(
+                          leading: Container(
+                            height: 60,
+                            width: 60,
+                            child: Image.file(
+                              File(data[index]
+                                  .image
+                                  .toString()), // Use File() to create a File object from the file path
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                        ),
-                        title: Text(data[index].title.toString()),
-                        subtitle: Text(data[index].description.toString()),
-                        trailing: IconButton(
-                          onPressed: () {
-                            //delete notes
-                            deleteNotes(data[index]);
-                          },
-                          icon: const Icon(Icons.delete),
+                          title: Text(data[index].title.toString()),
+                          subtitle: Text(data[index].description.toString()),
+                          trailing: IconButton(
+                            onPressed: () {
+                              //delete notes
+                              deleteNotes(data[index]);
+                            },
+                            icon: const Icon(Icons.delete),
+                          ),
                         ),
                       ),
                     );
